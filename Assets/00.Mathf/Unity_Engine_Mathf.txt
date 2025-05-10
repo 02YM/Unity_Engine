@@ -1,0 +1,38 @@
+# Mathf
+- Unity에서 제공하는 수학 관련 유틸리티 클래스입니다.
+-- 정적 클래스이므로 인스턴스를 만들지 않고 바로 사용합니다.
+-- float 자료형 중심의 수학 함수들을 제공합니다.
+-- 주로 게임 개발에서 보간, 제한, 삼각함수, 회전 계산 등에 자주 쓰입니다.
+
+## Static Properties
+	속성					설명					값							상황
+-	PI					원주율				3.141592f					원둘레/삼각함수
+-	Infinity			양의 무한대			float.PositiveInfinity		제한없는 최대값 설정
+-	NegativeInfinity	음의 부한대			float.NegativeInfinity		제한없는 최대값 설정
+-	Deg2Rad				도->라디안 변환 계수	약 0.0147(π/180)				각도 계산
+-	Rad2Deg				라디안->도 변환 계수	약 57.29578(180/π)			각도 계산
+-	Epsilon				아주 작은 수(float>0)약 1.401298e-45f				거리/에러 무시할 정도의 미세값 체크
+
+## Static Methods
+### 값 처리												설명				
+- Abs(f)												절댓값(음수를 양수로)
+- Sign(f)												부호 반환(+면1, -면-1)
+- Max(f, f), Min(f, f)									큰값, 작은값 반환
+- Clamp(value, min, max)								범위 제한
+### 반올림
+- Round(f)												가장 가까운 정수로 반올림
+- Ceil(f)												올림(무조건 큰 정수)
+- Floor(f)												내림(무조건 작은 성수)
+### 거리/계산
+- Pow(a, b)												거듭제곱 계산(a^b)
+- Sqrt(f)												제곱근(루트f)
+- DeltaAngle(current, target)							두 각도의 최소 차이 계산
+### 루프/반복
+- Repeat(f, length)										f값을 0~length 사이로 반복
+### 보간/제한
+- Lerp(a, b, t)											선형 보간(t= 0 ~ 1)
+- MoveTowards(current, target, maxDelta)				maxDelta 만큼 target방향으로 이동
+- SmoothDamp(current, target, ref velocity, smoothTime) 점점 느려지며 target에 도달
+### 삼각함수
+- Sin(x), Cos(x), Tan(x)								사인(π/2) -> 1, 코사인(0) -> 1, 탄첸트(π/4) -> 1
+- Asin(x), ACos(x), Atan(x)								아크사인(0.5)->0.5236, 아크코사인(1)->0, 아크탄첸트(1)->0.7854
