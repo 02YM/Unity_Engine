@@ -1,0 +1,19 @@
+# Time : 게임의 시간 관련 정보를 제공하는 Static클스이며, 주로 프레임 간 시간 차이나 게임 전체 시간 제어 등에 사용됩니다.
+
+#Static Properties
+프로퍼티					설명													용도
+- time					게임이 시작된 후 전테 경과 시간						타이머, 경과 시간 체크, 연출 타이밍
+- deltaTime				마지막 프레임이 완료되기까지 걸린 시간(초)				프레임 속도와 무관하게 움직임, 회전, 애니메이션 등을 일정하게 만들 때 사용
+- fxiedDeltaTime		FixedUpdate() 간의 간격 시간							물리 계산 타이밍 제어
+- timeScale				시간 흐름의 속도 배율									슬로우모션, 일시정지, 시간 조절
+- unscaleDeltaTime		deltaTime과 같지만 timeScale영향을 받지 않음			UI애니메이션이나 일시정지 중에서도 정상 동작해야 할 타이밍 계산
+- unscaledTime			timeScale의 영향을 받지 않은 게임 시작 이후 경과 시간	실제 시간 기반 로직
+- frameCount			현재까지 실행된 프레임 수								특정 프레임 간격마다 처리할 때
+- realtimeSinceStartup 게임이 시작된 후 실제 시간								타임스탬프, 정확한 타이밍 측정에 유용
+
+Update() VS FixedUpdate() VS LateUpdate() 차이
+메서드				호출타이밍							주요 용도
+Update()			매 프레임마다 호출					입력처리, UI업데이트, 일반 로직
+					프레임 속도에 따라 호출 횟수 다름
+FixedUpdate()		일정한 간격마다 호출					물리 연산 처리, Rigidbody의 움직임
+LateUpdate()		Update()후에 호출					카메라 추적, 애니메이션 후 위치 보정
