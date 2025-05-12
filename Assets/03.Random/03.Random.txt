@@ -1,0 +1,28 @@
+# Random : 무작위 값을 생성합니다.
+- 게임의 다양한 무작위 동작 (위치, 색상, 회전 등을) 제어하는데 유용합니다.
+
+# Static Properteis
+	프로퍼티						설명
+- insideUnitCircle				반지름 1인 단위 원 안의 무작위 2D 점 반환(Vector2)
+- insideUnitSphere				반지름 1인 단위 구 안의 무작위 3D 점 반환(Vector3)
+- onUnitSphere					반지름 1인 구 표면 위 무작위 점 반환(Vector3)
+- rotation						무작위 회전 반환
+- rotationUniform				균등 분포된 무작위 회전 반환
+- state							내부 난수 생성기의 상태 저장/복원 (디버깅/재현에 사용)
+- value							0.0 ~ 1.0 사이의 무작위 부동소수점 값 반환(float)
+
+## Circile	vs	Sphere
+- 2D			3D
+- 원				구
+
+# Static Methods
+	메서드								설명
+- ColorHSV()							HSV/Alpha 범위를 지정해 무작위 색상 생성(Color)
+- InitState(int seed)					고정된 시드로 난수 생성 초기화(재현성 보장)
+- Range(float/int min, float/int max)	주어진 범위 내 무작위 값 반환
+
+# 시드
+- 고정시드는 무작위 결과를 예측 가능하게 만드는 값입니다.
+- 무작위 동작은 기본적으로 실행할 때 마다 다른 결과를 만듭니다. 하지만 같은 상황에 같은 무작위 결과를 반복해서 얻는 것이 중요합니다.
+- 예를 들어 Random.InitState(42) 42번의 방을 만들고 42번 방에 나온 무작위 값은 저장하게 되어, 다시 플레이를 하여도 저장된 값을 사용합니다.
+- 무작위 결과를 고정, 항상 동일한 결과, 게임 재현성, 테스트, 멀티플에이에 중요합니다.
