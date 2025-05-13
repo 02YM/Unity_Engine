@@ -1,0 +1,32 @@
+# Ray
+- Unity에서 광선을 표현 할 때 사용하는 구조체이며, 주로 Raycast에서 사용됩니다.
+- 광선 정보를 담는 단순한 데이터
+-- new Ray(origin, direction)
+
+# Description
+- Ray은 시작점에서 특정 방향으로 무한히 뻗는 직선을 나타냅니다.
+- 흔히 물리 연산(충돌 검사, 시야 검사 등)에 사용됩니다.
+
+# Properties
+- Origin : 광선의 시작 지점(Vector3)
+- Direction : 광선이 향하는 방향 벡터(Vector3)
+
+# Constructors
+- Ray(orgin, direction) : origin부터 direction 방향으로 뻗는 Ray생성
+-- Ray ray = new Ray(Vector3.zero, Vector3.forward);
+
+# Public Methods
+- GetPoint(float distance) : 광선 위에서 orgin으로부터 distance만큼 떨어진 지점을 반환
+- Tostring() : Ray객체의 정보를 문자열로 반환(디버깅용)
+
+## 사용 용도 예시
+- Raycast(충돌 판정)
+- 마우스 포인터에서 광선 쏘기
+
+### 용도 요약 정리
+용도										관련 메서드
+마우스 클릭 -> 오브젝트 선택				ScreenPointToRay + Raycast
+캐릭터 시야/사격							Ray, Raycast, DrawRay
+AI 시야 판정								Raycast
+총알/공격 -> 충돌 감지					Raycast, RaycastHit
+UI와 3D 상호작용							GrpahicRaycaster + Physics.Raycast

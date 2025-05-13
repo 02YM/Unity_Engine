@@ -1,0 +1,10 @@
+# 각각의 차이점와 역할
+이름				타입					역할											예시
+Ray				구조체				광선 정보를 담는 단순한 데이터					new Ray(origin, direction)
+RaycastHit		구조체				광선이 부딛힌 결과 정보를 저장하는 구조체		hit.point, hit.collider, hit.distance
+Physics.Raycast	메서드				실제로 광선을 쏘아 충돌 여부를 검사하는 함수	Physics.Raycast(ray, out hit, maxDistance)
+
+# 요약 정리
+Ray : 광선을 어떻게 쏠지 정의하는 데이터
+RaycastHit : 무엇에 맞았는지 결과를 담는 출력값
+Physics.Raycast() : 실제로 광선을 쏘는 함수
