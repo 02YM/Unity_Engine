@@ -1,0 +1,29 @@
+# Input : 사용자의 키보드, 마우스, 터치 등 입력을 감지하는 클래스입니다.
+
+# Static Properties
+	프로퍼티						설명										사용 용도
+- mousePosition					현재 마우스 커서 위치						마우스 클릭 위치 기반 UI/월드 우브젝트 상호작용
+- mousePresent					마우스가 연결되어 있는지 여부				마우스 입력이 가능한 장치인지 확인
+- touchCount					현재 화면에서 감지 중인 터치수				모바일 터치 입력
+- touchSupported				터치 입력을 지원하는 여부					플랫폼(PC/모바일) 분기 처리
+- anyKey						아무 키가 눌렸는지 여부					아무 키나 눌러 시작 등 간단한 입력 감지
+- anyKeyDown					아무 키가 이번 프레임에 눌렸는지 여부		시작 화면, 빠른 입력 탐지
+- inputString					이번 프레임에 눌린 문자 키를 문자열로 반환	이름 입력 등 키보드 텍스트 입력처리
+- compensateSensors				자이로/센서 값 보졍 여부					센서 기반 입력 정확도 향상
+- acceleration					디바이스의 가속도 센서 값					모바일 기울기 기반 입력
+- deviceOrientation				보바일 장치의 방향						화면 자동 회전 처리, 방햐엥 따른 UI 전환
+
+# Static Methods
+	메서드					반환값				설명										사용 용도
+- GetKey(KeyCode)			bool				특정 키가 눌려 있는지 중인지 확인				Input.GetKey(KeyCode.W)
+- GetKeyDown(KeyCode)		bool				특정 키가 이번 프레임에 눌림					점프, 발사 등의 입력장치
+- GetKeyUp(KeyCode)			bool				특정 키가 이번 플레임에 땜					버튼 떼고 발사
+- GetMouseButton(int)		bool				마우스 버튼이 눌려 있는 중인지 확인			드래그, 조준 상태
+												(0=왼쪽, 1=오른쪽, 2= 휠)			
+- GetMouseButtonDown(int)	bool				마우스 버튼이 이번 프레임에 눌림				클릭 감지
+- GwetMouseButtonUp(int)	bool				마우스 버튼이 이번 프레임에 땜					클릭 완료 감지
+- GetAxis(string)			float				-1~1 사이의 연속적인 값(입력 축 기반)			캐리겉 이동, 조이스틱 입력
+- GetAxisRaw(string)		float				GetAxis()와 같지만 중간 보간 없음				빠른 방향 전환
+- GetButton(string)			bool				Input Manager에 등록된 버튼이 눌려 있는지 확인 "Fire1" 등
+- GetButtonDown(string)		bool				버튼이 이번 프레임에 눌렸는지					키보드/ 조이스틱 공통 처리
+- GetTouch(int)				Touch				인덱스에 해당하는 터치 정보 반환				멀티터치 처리

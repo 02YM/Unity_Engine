@@ -1,0 +1,22 @@
+# Gizmos : Scene 뷰에서 디버깅 시 시각적으로 도우미 역할을 합니다. 게임 실행중 Scene에서 보이고, Game에서는 안보입니다.
+
+# Static Properties
+	프로퍼티				설명
+- color					다음에 그려질 Gizmos의 색상을 설정합니다. 보통 OnDrawGizmos()에서 설정합니다.
+- matrix				Gizmos를 그릴 때 사용합니다 Matirx4x4 변형 행렬을 설정합니다. 로컬/월드 좌표계를 변환할때 유용합니다.
+
+# Static Methods
+	메서드											설명
+- DrawLine(Vector3 from, Vector3 to)				두 점 사이에 선을 구립니다, 경로 시각화에 주로 사용됩니다.
+- DrawRay(Vector3 form, Vector3 direction)			방향 벡터를 따라 선을 그립니다, AI시야 사각화 등에 활용됩니다.
+- DrawSphere(Vector3 center, float radius)			실선으로 채워진 구를 그립니다. 범위 표시 등에서 사용됩니다.
+- DrawWireSphere(Vector3 center, float radius)		와이어 프레임 구를 그립니다. 영역 시각화에 좋습니다.
+- DrawCube(Vectnr3 center, Vectir3 size)			실선으로 채워진 큐브를 그립니다. 박스 콜라이더 사각화 등에서 사용합니다.
+- DrawWireCube(Vectnr3 center, Vector3 size)		와이어프레임 큐브를 그립니다, 위와 유사하지만 더 가볍습니다.
+- DrawMesh(Mesh mesh, Vector3 position, Quaternion rotation, Vector3 scale)
+-- 특정 매쉬를 Scene뷰에 렌더링 합니다, 커스텀 Gizmos로 활용 가능합니다,
+
+# MonoBehaviour.
+	MonoBehaviour.메서드								설명
+- OnDrawGizmos()									씬 뷰에 그립니다, 선택을 안하고 계속 보여줍니다.
+- OnDrawGizmosSelected()							선택한 객체에서 보여줍니다, 객체를 선택(클릭) 하면 보여줍니다.

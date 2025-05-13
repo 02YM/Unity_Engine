@@ -1,0 +1,46 @@
+# SceneMnager
+- 씬(장면)을 로딩, 전환, 관리하는 데 사용하는 매우 중요한 클래스입니다.
+
+## Load : 불러오기
+
+# Setting
+- File > Build Profiles > SceneList 에 사용할 Scene을 넣습니다.!!
+
+# nameSpace
+using UnityEngine.SceneManagement;
+
+# Static Properties
+	프로퍼티								설명
+- sceneCount 							현재 로드된 씬의 수를 반환합니다. 멀티 씬 작업에서 자주 사용됩니다.
+- sceneCountInBuildSettings 			Build Settings에 등록된 씬의 총 개수입니다. 씬 순회 등에 사용됩니다.
+
+# Static Methods
+	메서드								설명															사용예
+- LoadScene(string name)			지정한 이름의 씬을 로드합니다.									SceneManager.LoadScene("GameScene");
+- LoadSceneAsync(string name)		씬을 비동기 로딩. 로딩화면이나 무중단 씬 전환에 유용			SceneManager.LoadSceneAsync("LoadingScene");
+- GetActiveScene()					현재 활성화된 씬 정보를 가져 옵니다.							Scene active = SceneManager.GetActiveScene();
+- SetActiveScene(Scene scene)		지정한 씬을 활성화 씬으로 설정, 멀티 씬 편집시 유용				SceneManger.SetActiveScene(scene);
+- UnloadSceneAsync(string name)		씬을 비동기적으로 언로드합니다.								SceneManger.UnloadSceneAsync("OldScene");
+
+# Event
+	이벤트								설명													활용
+- sceneLoaded						씬이 로드되면 발생. 게임 초기화 코드에 자주 사용			씬 시작 시 오브젝트 세팅
+- sceneUnloaded						씬이 언로드될 때 발생, 리소스 정리 등 에 유용				오브젝트 풀 반환 등
+- activeSceneChanged				활성 씬이 바뀔 때 호출, 멀티 씬 상활에서 사용				씬 전환 시 데이터 초기화
+
+
+## SetActiveScene(Scene Scene)
+- 동시에 여러 씬을 로드 할 수 있지만, 내부적으로 항상 "하나의 활성 씬"만 존재합니다.
+사용 목적
+- 1. 새로 생성되는 GameObject의 위치를 명확히 지정하기 위해
+- 2. 씬 간의 명확한 역할 구분을 위해
+- 3. 특정 씬에서만 게임플레이 제어, 입력, 저장 처리하기 등을 하기 위해
+
+### 멀티씬
+- 하나의 게임을 여러 개의 씬으로 분리해서 동시에 로드/운영하는 Unity기능입니다.
+	사용 목적							활용 방식
+공통 시스템 유지						게임 시스템 씬 + 레벨 씬
+협업 분리							씬을 기능 단위로 나눔
+퍼포먼스								거리 기반 씬 스트리밍
+로딩 처리							로딩씬 + Additive로딩
+모듈화								UI, 오디오, 이벤트 씬 따로 정리
