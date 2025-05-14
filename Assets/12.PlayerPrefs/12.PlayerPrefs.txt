@@ -1,0 +1,24 @@
+# PlayerPrefs
+- 간단한 데이터 저장에 사용되는 로컬 저장소 API입니다.
+-- 볼륨 설정, 게임 난이도, 마지막 로그인 시간, 로그인 아이디등
+-- 이러한 데이터를 간단하게 디스크에 저장할 수 있게 도와주는 Unity의 내장 저장소 클래스입니다.
+
+## 저장 위치 (운영 체제 별)
+- Windows : 레지스토리 HKEY_CURRENT_USER\Software\회사이름\프로젝트이름
+- Android : SharedPreferences로 저장
+- WebGL : 브라우저 인덱스 DB로 최대 1MB까지 저장 가능
+
+# Static Methods
+항목				메서드															설명
+
+- 저장		SetInt(string key, int value)										정수 저장
+-			SetFloat(string key, float value)									실수 저장
+-			SetString(string key, string value)									문자열 저장
+- 불러오기	GetInt(string key, int defaultValue = 0)							저장된 정수 불러오기
+-			GetFloat(string key , float defaultValue = 0f)						저장된 실수 불러오기
+-			GetString(string key, string defaultValue = "")						저장된 문자열 불러오기
+
+- DeleteKey(string key)												특정 키 삭제
+- DeleteAll()														저장된 모든 값 삭제
+- HasKey(string key)												특정 키가 존재하는지 확인
+- Save()															명시적으로 디스크에 저장(모바일에서는 자동 저장됨)
