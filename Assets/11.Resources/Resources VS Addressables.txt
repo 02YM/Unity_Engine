@@ -1,0 +1,16 @@
+	항목					Resources								Adressables
+에셋 접근 방식			경로기반									주소 기반, 라벨 기반
+					Resources.Load("Path/To/Asset")				Addressables.LoadAssetAsync
+비동기 지원			LoadAsync지원								완전한 비동기 로드 지원
+에셋 관리			자동 포함(Build 시 Resources 폴더 전부 포함)	필요한 것만 포함가능
+에셋 업데이트			빌드 후 변경 불가								원격으로 업데이트 가능(CDN 등에서 다운)
+메모리 관리			수동 언로드									자동 레퍼런스 기반관리 + 수동 해제가능
+빌드 최적화			에셋 추적/최적화 어려움						Addressables 분석 툴로 추적 및 최적화 가능
+적합한 규모			소규모, 빠른 프로토타입						중~대규모 프로젝트
+
+결론:				빠른 프로토타입, 소규모 게임					유조보수 중요, 대규모 게임
+
+Addressables 기본 구조
+1. Addressables 패키지 다운
+2. 에셋에 Addressable 체크 및 이름/라벨 설정
+3. 코드에서 라벨 또는 이름으로 로드
