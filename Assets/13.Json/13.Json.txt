@@ -1,0 +1,17 @@
+# JsonUility 
+- Unity의 내장 Json 직렬화 도구
+- 객체 <-> JSON 문자열 간 변환을 지원
+- 게임 저장 데이터, 네트워크 통신, 외부 API와의 데이터 교환 등에 사용
+
+# Static Methods
+	메서드														설명
+- ToJson(object obj)											객체를 JSON 문자열로 반환
+- FromJson<T>(string json)										JSON문자열을 객체로 역직렬화
+- FromJsonOverWrite(string json, object obejctToOverWirte)		기존 객체에 덮어쓰기 방식으로 JSON 데이터 적용
+
+
+# 요약
+	장점												주의점
+빠르고 간편한 직렬화/ 역질렬화							class나 struct만 가능(배열이나, List는 루트에 못 옴)
+Unity Inspector 변수와 호환							필드는 Public이거나  [SerializeField] 여야 합니다.
+PlayerPrefs와 함께 사용하면 세이브 시스템 구현가능		Json은 반드세 객체를 루트로 해야함
