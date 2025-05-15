@@ -4,10 +4,10 @@
 - 게임 저장 데이터, 네트워크 통신, 외부 API와의 데이터 교환 등에 사용
 
 # Static Methods
-	메서드														설명
-- ToJson(object obj)											객체를 JSON 문자열로 반환
-- FromJson<T>(string json)										JSON문자열을 객체로 역직렬화
-- FromJsonOverWrite(string json, object obejctToOverWirte)		기존 객체에 덮어쓰기 방식으로 JSON 데이터 적용
+	메서드														설명													사용목적
+- ToJson(object obj)											객체를 JSON 문자열로 반환								저장 시 사용
+- FromJson<T>(string json)										JSON문자열을 객체로 역직렬화							로드 시 새 객체 생성
+- FromJsonOverWrite(string json, object obejctToOverWirte)		기존 객체에 덮어쓰기 방식으로 JSON 데이터 적용			성능이나 메모리 최적화 시 유용
 
 
 # 요약
