@@ -40,9 +40,7 @@ public class JsonUtilityExample : MonoBehaviour
         // 1. 단계 : ToJson - 객체 -> Json 문자열
         // 항목                                                 설명        
         // PlayerDdataStatus : 객체 생성        ->              "Dydals" 이름의 플레이서 생성
-
         Debug.Log("> ToJson 결과 : \n" + json);
-
 
 
         //(2). FromJson<T> : JSON 문자열을 새 객체로 역직렬화

@@ -12,3 +12,5 @@ Unity_Engine
 11. SceneManager
 12. Resource
 13. PlayerPrefs
+14. Json
+15. ScriptableObject
