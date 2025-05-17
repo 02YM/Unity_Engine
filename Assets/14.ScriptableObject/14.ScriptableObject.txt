@@ -6,6 +6,10 @@
 - 재사용 가능한 데이터 블록을 만들기 위해 사용됨
 - 런타임 동안에도 참고하고 읽고 쓸 수 있음
 
+# 사용 방법
+- 1. Create > Script > ScriptableObject Scriptable 생성 > 코드 작성
+- 2. Create > Scritable Objewcts 생성 > 데이터 입력 > 오브젝트 연결
+
 # 사용 목적
 	목적								설명
 공통 데이터 저장						여러 오브젝트가 공유해야 하는 데이터 (플레이어 능력치, 아이템 정보)
