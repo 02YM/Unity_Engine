@@ -1,0 +1,57 @@
+# ScriptableObject
+- Unity에서 데이터 자산을 저장하고 공유할 수 있도록 설계된 비-컴포넌트 객체입니다.
+- 컴포넌트처럼 GameObject에 붙지 않으며, 주로 데이터 저장 및 관리를 위해 사용됩니다.
+- MonoBehaviour 처럼 Object를 상속하지만, 씬에 존재하지 않음
+- 게임 오브젝트에 붙지 않으며, 에셋(Asset)으로 저장 가능
+- 재사용 가능한 데이터 블록을 만들기 위해 사용됨
+- 런타임 동안에도 참고하고 읽고 쓸 수 있음
+
+# 사용 목적
+	목적								설명
+공통 데이터 저장						여러 오브젝트가 공유해야 하는 데이터 (플레이어 능력치, 아이템 정보)
+데이터 중심 설계(Data-Driven Design)	로직과 데이터를 분리해 유지보수가 쉬운 구조를 만듬
+런타임/에디터 구분 사용				런타임에도 사용할 수 있지만, 에디터에서 자산 관리용으로도 활용가능
+
+# ScriptableObject 장점
+	장점								설명
+메모리 효율							동인한 ScriptableObject를 여러 곳에서 공유하여 메모리 절약
+테스트 용이							GameObject 없이도 데이터만 테스트 가능
+직렬화 쉬움							인스펙터에서 바로 값 설정 및 저장 가능
+분리된 데이터 관리					코드와 데이터를 분리해 유지보수 향상
+
+# 주의 사항
+- ScritableObject는 싱글톤처럼 사용하지 말것(전역 상태 공유는 주의 필요)
+- 런타임에 Instantiate 하지 않으면 에셋을 직접 변경할 수 있음
+
+# Messages : MonoBeHaviour 처럼 생명주기 이벤트가 일부 존재합니다.
+	메세지							설명
+- Awake								ScriptableObject가 생성될 때 호출됩니다.
+- OnDestroy							ScriptableObject가 파괴될때 호출돕니다.
+- OnDisable							사용되지 않을 때 호출됩니다.
+- OnEnable							ScriptableObject가 활성화될 때 호출됩니다.
+- OnValidate						인스펙터에서 값이 변경되거나 로딩될 때 호출됩니다.
+- Reset								값들을 기본값으로 초기화할 때 호출됩니다.
+
+# Inherited Members Properties(상속된 멤버) : UnityEngine.Object를 상속하므로, 아래 속성들을 포합니다.
+	프로퍼티							설명
+- hideFlags							오브젝트가 씬에 보이거나, 수정 가능한지 여부를 결정
+- name								오브젝트 이름
+
+# Static Methods
+	메서드							설명
+- CreateInstance					ScriptableObject의 인스턴스를 생성합니다.
+									반드시 ScruptableObject.CreateInstance<T>() 형태로 사용
+- UnityEngine.Object를 상속으로 Destroy, DontDestroyOnLoad, FindAnyObjectByType, Instantiate **등 사용 가능합니다.
+
+# Public Methods
+	메서드							설명
+- GetInstanceID						오브젝트의 고유 인스턴스 ID를 반환
+- ToString							오브젝트의 이름 문자열을 반환
+
+# 요약
+	항목								설명
+- 역할								데이터 컨테이너(컴포넌트 아님, 게임 오브젝트에 붙지 않음)
+- 상속 구조							UnityEngine.Object -> ScritableObject
+- 생성 방법							CreateInstance<T>() 또는 [CreateAssetMenu]
+- 메시지								Awake, OnEnable, OnDisable 등 사용 가능
+- 사용 예							능력치 데이터, 설정 데이터, 아이템 DB 등
