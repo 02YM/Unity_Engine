@@ -1,0 +1,10 @@
+# Directroy 클래스
+- 디렉토리 생성, 삭제, 검색 등 "폴더 작업"에 사용
+
+# 메서드
+	메서드								설명
+	.Exists(path)						디렉토리 존재 여부
+	.CreateDirectroy(path)				디텍토리 생성(이미 존재하면 무시)
+	.Delete(path)						디렉토리 삭제
+	.GetFiles(path)						해당 디렉토리의 파일 목록 반환
+	.GetDirectories(path)				하위 디렉토리 목록 반환

@@ -1,0 +1,6 @@
+# 정리
+
+분류						대표클래스							기능
+파일 읽고 쓰기			File, StreamRender, StreamWriter	텍스트 파일 읽기/쓰기
+폴더 작업				Directory							폴더 생성, 삭제, 탐색
+경로 작업				Path								경로 결합, 확장자 추출 등

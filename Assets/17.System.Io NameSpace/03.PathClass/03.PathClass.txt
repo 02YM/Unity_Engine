@@ -1,0 +1,10 @@
+# Path
+- 파일 경로를 결합하거나 확장자 추출 등 경로 문자열 처리에 사용
+
+# 메서드
+	메서드							설명
+	.Combine(a,b)					경로를 안전하게 결합
+	.GetFileName(path)				전체 경로에서 파일 이름만 추출
+	.GetExtension(path)				파일 확장자 추출
+	.GetDirectroyName(path)			디렉토리 경로 추출
+

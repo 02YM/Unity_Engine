@@ -1,0 +1,7 @@
+# StreamReader,StreamWriter
+- 텍스트 파일을 줄 단위로 읽거나 쓸 때 사용
+
+# 클래스
+	클래스								설명
+	StreamRender						파일에서 한 줄씩 일기
+	StreamWriter						파일에 한 줄씩 쓰기

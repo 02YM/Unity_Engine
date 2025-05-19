@@ -1,0 +1,11 @@
+# File 클래스
+- 파일을 생성, 삭제, 읽기, 쓰기 등 "단일 파일 작업"에 사용
+
+# 메서드/프로퍼티
+메서드/프로퍼티							설명
+	.Exists(path)						해당 경로의 파일 존재 여부 확인
+	.ReadAllText(path)					텍스트 파일을 한 번에 모두 읽어 문자열 반환
+	.ReadAllLines(path)					텍스트 파일을 줄 단위 배열로 읽기
+	.WriteAllText(path, string)			문자열을 파일에 쓰기(기존 내용 덮어 씀)
+	.AppendAllText(path, string)		기존 파일 끝에 문자열 추가
+	.Delete(path)						파일 삭제
