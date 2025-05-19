@@ -1,0 +1,22 @@
+# System.Io
+- C#과 Unity를 포함한 .NET 기반 환경에서 파일 및 데이터 스트림 입출력 작업을 처리하는 기능을 제공하는 네임스페이스 입니다.
+- 파일 읽기/쓰기, 폴더 생성/삭제, 경로 처리 등을 위한 다양한 클래스와 메서드를 포함하고 있습니다.
+
+# 주요 클래스
+	클래스							설명
+File								파일 생성, 삭제, 복사, 이동, 읽기/쓰기(정적 메서드 사용)
+FileInfo							특정 파일의 정보를 다루는 인스턴스 기반 클래스
+Directroy							폴더 생성, 삭제, 검색(정적 메서드 사용 가능)
+DirectroyInfo						특정 디렉터리에 대한 인스턴스 기반 정보
+Path								파일 경로 문자열을 조자(확장자, 디렉토리명 등 추출)
+FileStream							파일을 스트림을 읽고 쓰는 클래스(바이너리 처리 등)
+StreamRender						텍스트 파일 읽기
+StreamWriter						텍스트 파일 쓰기
+
+# 클래스 요약
+	기능								클래스/메서드
+텍스트 파일 저장/ 읽기				File.WriteAllText, File.ReadAllText
+디렉터리 조작							Directroy.CreateDirectroy, Directory.Exists
+경로 조작							Path.Combine, Path.GetExtension
+세부 정보 접근						FileInfo, DirectroyInfo
+고급 스트림 제어						FileStream, StreamRender, StreamWriter
