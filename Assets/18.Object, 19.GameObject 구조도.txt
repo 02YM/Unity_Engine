@@ -1,0 +1,18 @@
+# Object와 GameObject의 구조도
+## 전체 구조
+
+Object
+└── Component
+    ├── Behaviour
+    │   ├── MonoBehaviour
+    │   └── ...
+    └── Transform (예외적으로 MonoBehaviour를 상속하지 않음)
+    
+Object
+└── GameObject
+
+
+# 요약
+- GameObject는 Object를 직접 상속
+- Component는 Object를 상속 하며, GameObject에 부탁 가능한 구성요소
+- Transform, MonoBehaviour, Collider, Renderer 등을 Compoent의 파생 클래스
