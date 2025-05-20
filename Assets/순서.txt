@@ -14,3 +14,8 @@ Unity_Engine
 13. PlayerPrefs
 14. Json
 15. ScriptableObject
+16. TextAsset
+17. StreamingAsset
+18. System.Io
+19. Object
+20. GameObject

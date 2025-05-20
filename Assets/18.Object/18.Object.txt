@@ -1,0 +1,32 @@
+# Object
+- UnityEngine.Object는 Unity의 모든 오브젝트의 기반 클래스입니다.
+- MonoBehaviour, GameObject, Component, ScriptableObject,Texture, AudioClip 등 Unity 객체들은 이 클래스를 상속합니다.
+- 유니티 에디터에서 Object를 상속한 타입들은 인스펙터에 드래그할 수 있게 됩니다.
+- Resources.LoadAll, AssetDatabase, EditorJsonUnility.ToJson 같은 API가 Object 기반 객체를 다루도록 되어 있습니다.
+
+# Properties
+	속성									설명
+hideFlags								오브젝트를 숨기거나, 저장 여부, 수정 가능 여부 등을 제어하는 플래그
+name									오브젝트의 이름(읽고 쓰기 가능)
+
+# Public Methods
+	메서드								설명
+GetInstanceID()							이 오브젝트의 고유 ID를 반환
+ToString()								오브젝트의 이름을 문자열로 반환
+
+# Static Methods
+	메서드								설명
+Destroy()								GameObject 또는 Component를 삭제
+DestroyImmediate()						즉시 삭제(에디터 전용)
+DonDestroyOnLoad()						씬 전환 시에도 오브젝트를 유지
+FindAnyObjectByType<T>()				임의의 활성화된 T 타입 오브젝트를 반환
+FindFirsetObjectByType<T>()				첫 번째 T타입 오브젝트 반환
+FindObjectsByType()						모든 T타입 오브젝트 배열 반환
+Instantiate()							복제본 생성
+InstantitateAsync()						복제본 비동기 생성(GameObject 기반 필요)
+
+# 요약
+- UnityEngine.Object는 Unity에서 모든 에셋과 게임 오브젝트의 루트 클래스입니다.
+- GameObject, Component 등과 다르게 이것은 C#의 System.Object와는 별도입니다.
+- Destory(), Instantiate() 같은 Unity 기능은 이 클래스를 ㅌ통해 공통적으로 처리됩니다.
+- 파괴돈 오브젝트와의 비교 시, Unity 특성상 null 체크 방식에 주의가 필요합니다.
