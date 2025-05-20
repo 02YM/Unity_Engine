@@ -1,0 +1,24 @@
+# MonoBehaviour
+- Unity의 Component 클래스에서 파생된 클래스
+- Unity의 이벤트 함수(Start(), Update(), OnTriggerEnter()), 생명주기 등을 자동으로 인식하고 호출해줌
+- GameObject에 붙어야 동작함
+- 사용자 정의 동작을 구현할 수 있게 해주는 스크립트 베이스
+
+# 대표적인 기능과 역할
+	기능								설명
+Start()								스크립트가 시작될 때 1회 호출
+Update()							매 프레임 호출됨(게임 로직 업데이트에 사용)
+FixedUpdate()						물리 연산용 업데이트(시간 기반)
+LateUpdate()						Update후 호출(카메라 추적 등)
+Awke()								스크립트 인스턴스 초기화
+OnEnable()/OnDisable()				활성화/비활성화 될 때 호출
+OnDestroy()							GameObject나 스크립트가 삭제될 떄 호출
+OnCollisionEnter()/OnTriggerEnter()	물리 충돌 이벤트
+Invoke(), StartCorutine()			지연 호출, 코루틴 실행 가능
+
+# 특징
+	특징								설명
+Unity에 의해 관리됨					생성.삭제.활성화.비활성화 등을 Unity가 처리
+new 키어드로 생성 불가				반드시 GameObject에 붙여야 동작
+자동 호출되는 함수 제공				개발자가 일일이 호출할 필요 없이 Unity가 호출
+Inspector와 연동						public 변수는 인스펙터에서 조작 가능
