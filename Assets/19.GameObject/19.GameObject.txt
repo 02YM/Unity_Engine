@@ -1,0 +1,55 @@
+# GameObject
+- GameObject는 씬에 존재할 수 있는 엔터티의 기본 단위입니다.
+- Transform 컴포넌트를 기본적으로 포함하며, 나머지 기능은 모두 Component를 추가함으로써 확장됨니다.
+- 예) 캐릭터, 소품, 카메라, 라이트 등 모두 GameObject입니다.
+- MonoBehaviour를 상속한 스크립트들도 컴포넌트로 GameObject에 붙습니다.
+- GameObject는 object를 상속합니다.
+
+# Properties
+	속성								설명
+activeInHiderarchy					계층 구조에서 활성 상태인지 확인(읽기 전용)
+activeSlef							본인의 활성화 여부(SetActive()와 연결)
+isStatic							정적 오브젝트인지 여부
+layer								오브젝트가 속한 레이어
+scene								이 오브젝트가 속한 씬
+tag									태그 문자열(오브젝트 분류용)
+transform							위치, 회전, 크기 정보를 담고 있는 기본 컴포넌트
+
+# Constructors
+	생성자							설명
+GameObject()						빈 GameObject 생성
+GameObject(string)					이름을 지정해서 생성
+
+# Public Methods
+	메서드							설명
+AddComponent<T>()					새로운 컴포넌트를 추가
+GetCompoent<T>()					지정 타입의 컴포넌트를 반환
+GetCompoents<T>()					모든 컴포넌트 배열 반환
+CompareTag()						지정한 태그와 비교
+SendMessage()						지정된 메서드 호출
+SetActive(bool)						오브젝트의 활성/비활성 상태 변경
+TryGetCompoent<T>(out T)			컴포넌트가 존재하면 반환, 없으면 false
+
+# Static Methods
+	메서드							설명
+CreatePrimitive(PrimitiveType)		구, 큐브, 캡슐 같은 기본 도형 생성
+Find(string)						이름으로 오브젝트 찾기
+FindGameObjectWithTag(string)		태그를 가진 모든 오브젝트 배열 반환
+FindWithTag(string)					태그를 가진 첫 번째 오브젝트 반환
+
+# GameObject는 Object를 상속받으므로 상속된 멤버, 상속된 메서드가 존재합니다.
+## 상속된 멤버
+	멤버								설명
+- hidFlags, name					오브젝트 숨김 여부, 이름
+- GetInstanceID(), ToString()		고유 ID, 이름을 문자열로 반환
+
+## 상속된 메서드
+	메서드							설명
+- Destroy(), DestroyImmediate()		오브젝트 제거
+- Instantiate(), InstantiateAsync()	복제
+- DontDestroyOnLoad()				씬 전환 시 유지
+
+# 요약
+- GameObject는 Unity에서 모든 오브젝트의 중심 단위 입니다.
+- 위치/크기/회전 정보를 담는 Transform을 항상 포함하고, 기능은 컴포넌트로 확장됩니다.
+- 대부붑ㄴ Unity 게임 개발은 GameObject를 만들고, 거기에 다양한 Component를 붙이는 방식으로 이루어집니다.
